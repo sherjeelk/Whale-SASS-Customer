@@ -1,0 +1,86 @@
+.footer{
+  background: #111111;
+  color: whitesmoke;
+  padding: 15px 30px;
+  margin-bottom: 85px;
+}
+
+
+.dark-theme-footer{
+  background-color: #1d1d1d;
+  color: white;
+  padding: 15px 30px;
+  margin-bottom: 85px;
+}
+
+.about{
+  color: #ff380a ;
+  font-size: 24px;
+}
+
+.about-desc{
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.company-contact-footer{
+  color: white;
+  margin-right: 7px;
+  height: 24px;
+  width: 24px;
+}
+
+.social{
+  height: 24px;
+  width: 24px;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+.footer-row{
+  width: 90%;
+  margin: 30px auto 30px auto;
+}
+.social-link{
+  text-decoration: none;
+  color: white;
+}
+.footer-about{
+  align-self: center;
+  text-align: left;
+  display: inline-block;
+
+}
+
+
+.column-footer{
+  text-align: center;
+  align-self: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .row {
+    --bs-gutter-x: block!important;
+
+  }
+  .column-footer{
+    text-align: left;
+  }
+}
+
+.footer-link{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.about-link{
+  margin-right: 20px;
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+
+.about-link{
+  cursor: pointer;
+}

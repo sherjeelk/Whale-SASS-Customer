@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/css/util.css";
+
+:root {
+  --main-bg-color: #000000;
+  --checkbox-color: #6e6a6a;
+}
+
+html, body { height: 100%;
+padding-top: 0;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.font-family-garmond {
+  font-family: 'EB Garamond', serif
+}
+
+.font-family-lato {
+  font-family: 'Lato', serif;
+}
+
+.font-family-poppins {
+  font-family: 'Poppins', serif;
+}
+
+.font-family-rubik {
+  font-family: 'Rubik', serif;
+}
+//.mat-form-field-appearance-fill .mat-form-field-flex {
+//  background-color: white!important;
+//}
+
+@media (max-width: 500px) {
+  .mat-horizontal-content-container {
+    overflow: hidden;
+    padding: 0!important;
+  }
+}
+
+

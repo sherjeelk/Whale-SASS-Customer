@@ -1,0 +1,12 @@
+
+
+<div *ngIf="dataShare.prod">
+  <app-theme-dark *ngIf="dataShare.siteData.theme === 'dark' ; else other"></app-theme-dark>
+  <ng-template #other>
+    <app-home></app-home>
+  </ng-template>
+</div>
+
+<div *ngIf="!dataShare.prod">
+  <app-home></app-home>
+</div>

@@ -1,0 +1,149 @@
+<div class="main-form-card">
+  <div class="d-flex;">
+    <h4
+      [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font ,'color':dataShare.siteData.custom?.global?.color}"
+      class="m-t-20 m-b-20 " style="margin-top: 17px; margin-left: 5px; padding: 5px">Select Your Slot
+    </h4>
+  </div>
+  <div *ngIf="!showSlots">
+    <div *ngIf="timeSlot.length > 0" class="button_style ">
+      <button (click)="getNextSlots(timeSlot[0].date, true)" *ngIf="timeSlot[0].date.isAfter(currentDate)"
+              class="btn_next" mat-raised-button
+              [ngStyle]="{ 'font-family':dataShare.siteData.custom?.global?.font,'background':dataShare.siteData.custom?.global?.color}">
+        <svg style="width:14px;height:14px" viewBox="0 0 24 24">
+          <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" fill="currentColor"/>
+        </svg>
+        Previous 7 days
+      </button>
+      <button
+        [ngStyle]="{ 'font-family': dataShare.siteData.custom?.global?.font, 'background': dataShare.siteData.custom?.global?.color}"
+        (click)="getNextSlots(timeSlot[6].date, false)" class="btn_next text-center" mat-raised-button>
+        Next 7 days
+        <svg style="width:14px;height:14px" viewBox="0 0 24 24">
+          <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+    <div *ngIf="ready">
+      <div *ngFor="let date of timeSlot" class="my-3">
+
+        <div *ngIf="date.slots.length === 0" class="border-bottom no_slot">
+          <p [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font}" class="mb-2 mt-3 L-SB">{{date.day}} (no
+            available times)</p>
+        </div>
+
+        <div>
+
+          <div *ngIf="date.slots.length > 0" class="border my-3">
+            <div class="my-5">
+
+              <div [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font}"
+                   class="L-SB day_Style">{{date.day}}</div>
+            </div>
+            <span *ngFor="let item of date.slots">
+<!--            {{item | json}}-->
+                <button [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font}" (click)="getSlotValue(item)"
+                        class="time-slot"
+                        mat-button><span>{{dataShare.getTime(item.start)}}-{{dataShare.getTime(item.end)}}</span></button>
+              <!--                            <button *ngIf="item.available" [class] = "timeSelectedCss(item)"  mat-button (click)="scheduleInfo(item)"><span>{{item.from}} - {{item.till}} <br>({{item.name}})</span></button>-->
+              </span>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!contactForm" class="contact_div">
+    <span class="info_text L-SB"
+          [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font,'color':dataShare.siteData.custom?.global?.color }">Didn't find the right time? </span>
+    <p class="font-regular L-M" [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font }">Let us know and
+      we'll hook you up!</p>
+    <div class="example-button-row ">
+      <button
+        [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font,'background':dataShare.siteData.custom?.global?.color}"
+        type="button"
+        (click)="openContactForm()" class="btn_contact L-SB" mat-button>Contact
+      </button>
+    </div>
+  </div>
+  <div *ngIf="contactForm" class="contact_div">
+    <form [formGroup]="ContactUs" class="my-3">
+      <p [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font}" class="L-M">Submit a contact request - we
+        will take care of it!</p>
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <mat-form-field appearance="outline" style="width: 100%" >
+            <mat-label class="L-M" [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font}">Phone</mat-label>
+            <input [maxLength]="10" class="w-full L-M" formControlName="phone" matInput required type="tel" (keypress)="isNumberKey($event)" >
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+
+          <mat-form-field appearance="outline" style="width: 100%">
+            <mat-label class="L-M" [ngStyle]="{'font-family':dataShare.siteData.custom.global?.font}"> Email</mat-label>
+            <input
+              class="w-full L-M" formControlName="email"
+              matInput
+              required
+              type="email">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-6">
+          <mat-form-field appearance="outline" class=" w-100">
+
+            <mat-label [ngStyle]="{'font-family':dataShare.siteData.custom.global?.font}">Choose a date</mat-label>
+
+            <input [matDatepicker]="picker" formControlName="date" matInput>
+            <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label [ngStyle]="{'font-family':dataShare.siteData.custom.global?.font}">Time</mat-label>
+            <input [format]="24" [ngxTimepicker]="defaultValue" formControlName="time" matInput readonly type="time">
+            <ngx-material-timepicker [theme]="clockTheme" #defaultValue></ngx-material-timepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </form>
+
+    <div class="text-right">
+
+      <button [ngStyle]="{'border': '2px solid' + dataShare.siteData.custom.global?.color, 'background-color': dataShare.siteData.custom.global?.color}" (click)="moveNextTab()" type="submit"
+              [disabled]="(!ContactUs.valid)" class="btn_ok font-medium" mat-flat-button
+              matStepperNext>
+        Ok
+      </button>
+      <button [ngStyle]="{'border': '2px solid' + dataShare.siteData.custom.global?.color, color: dataShare.siteData.custom.global?.color}" type="button"
+              (click)=cancelSlot() class="btn_cancel font-medium" mat-flat-button>Cancel
+      </button>
+
+    </div>
+  </div>
+
+
+
+  <div class="calender-btn">
+      <button
+        [ngStyle]="{background: dataShare.siteData.custom?.global?.color,'font-family' : dataShare.siteData.custom?.global?.font}"
+        mat-raised-button matStepperPrevious class="add-btn">Previous
+      </button>
+    <div class="next-btn">
+      <button (click)="continueCalendar()"
+              [ngStyle]="{background: dataShare.siteData.custom?.global?.color,'font-family' : dataShare.siteData.custom?.global?.font}"
+              mat-raised-button matStepperNext class="add-btn"  [disabled]="((!this.dataShare.slotsSelected) && (!ContactUs.valid))">Next
+      </button>
+    </div>
+  </div>
+</div>
+
+

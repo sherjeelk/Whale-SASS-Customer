@@ -1,0 +1,15 @@
+<div [class]=" dataShare.siteData?.theme === 'dark'? 'dark-header':'header'">
+  <div class="row">
+    <div class="col p-t-15 p-b-15" *ngIf="dataShare.siteData.custom?.logoAsHeader === false">
+      <a class=" brand-link" href="">
+        <span class="brand" [ngStyle]="{'font-family': dataShare.siteData?.custom?.global?.font, 'color':dataShare.siteData.custom?.global?.color }">{{dataShare.siteData?.name}}</span>
+      </a>
+    </div>
+    <div class=" p-t-10 p-b-10 col m-l-40" *ngIf="dataShare.siteData.custom?.logoAsHeader ">
+     <a href="">
+      <img  [src]="dataShare.siteData.logo" style="height: auto; width: 65px;"  alt="No image">
+     </a>
+    </div>
+    </div>
+  </div>
+

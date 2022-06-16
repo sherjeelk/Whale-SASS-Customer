@@ -1,0 +1,29 @@
+<!--<div  class="pos-relative m-t-30">-->
+<!--&lt;!&ndash;  [class]="data.selected ? 'border' : ''"&ndash;&gt;-->
+<!--  &lt;!&ndash;  <mat-checkbox class="w-full" (change)="changeColor($event)"&ndash;&gt;-->
+<!--  &lt;!&ndash;                [ngStyle]="{'font-size': data ? data.font: '', 'font-weight':data.bold ? 'bold': '',&ndash;&gt;-->
+<!--  &lt;!&ndash;                 'font-style':data.italic ? 'italic':'','text-decoration':data.underline? 'underline':'',&ndash;&gt;-->
+<!--  &lt;!&ndash;                 'color':data.color ?'':'', 'font-family' : data.font_family }"  [checked]="true" >&ndash;&gt;-->
+<!--  &lt;!&ndash;    {{data.text}}</mat-checkbox>&ndash;&gt;-->
+
+
+<!--  <input-->
+<!--    [ngStyle]="{ 'font-size': data ? data.font: '', 'font-weight':data.bold ? 'bold': '',-->
+<!--                 'font-style':data.italic ? 'italic':'','text-decoration':data.underline? 'underline':'',-->
+<!--                 'color':data.color ?'':'', 'font-family' : data.font_family   }"  [checked]="true"  type="checkbox"  name="vehicle1" value="Bike">-->
+<!--  <span [ngStyle]="{'font-family': dataShare.globalData?.font}">{{data.text}}</span>-->
+
+<!--&lt;!&ndash;  <app-edit *ngIf="data.selected"></app-edit>&ndash;&gt;-->
+<!--</div>-->
+
+<div *ngIf="data.dynamicData">
+  <div  class="pos-relative m-t-30">
+    <!--  ====================new code==================-->
+    <label class="checkmarkContainer" >
+      <input  type="checkbox" #checkbox  (change)="changeCheckBoxValue($event)">
+      <span [style]="{'--checkbox-color' : checkBoxValue ? dataShare.siteData.custom.global.color : '#666565'}"  class="checkmark"> </span>
+      <span [ngStyle]="{color: data.color, 'font-size':data.font, 'font-family': data.font_family}" (click)="openLinkPopUp()">{{data.uiData?.text}}</span>
+    </label>
+  </div>
+</div>
+

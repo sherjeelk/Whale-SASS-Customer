@@ -1,0 +1,56 @@
+<div>
+  <div class="row">
+  <div *ngFor="let item of dataShare.siteData?.config?.step1" [class]="item.class" >
+    <div *ngIf="item.type === 'mat-option'">
+      <app-mat-option [data]="item.uiData">
+      </app-mat-option>
+    </div>
+    <div>
+      <div *ngIf="item.type === 'sub-service'">
+        <app-sub-service [data]="item.uiData">
+        </app-sub-service>
+      </div>
+    </div>
+    <div *ngIf="item.type === 'divider'">
+      <app-divider [data]="item.uiData">
+
+      </app-divider>
+    </div>
+    <div *ngIf="item.type === 'text-box'" >
+      <app-form-field-half [data]="item">
+      </app-form-field-half>
+    </div>
+    <div *ngIf="item.type === 'text-area'">
+      <app-text-box [data]="item">
+
+      </app-text-box>
+    </div>
+    <div *ngIf="item.type === 'text-box-full'">
+      <app-form-field-half [data]="item">
+      </app-form-field-half>
+    </div>
+    <div *ngIf="item.type === 'check-box'">
+      <app-checkbox [data]="item">
+      </app-checkbox>
+    </div>
+
+    <div *ngIf="item.type === 'radio_button'">
+      <app-radio-button [data]="item">
+      </app-radio-button>
+    </div>
+    <div *ngIf="item.type === 'heading-text'">
+      <app-edit-textbox [data]="item.uiData">
+
+      </app-edit-textbox>
+    </div>
+  </div>
+  </div>
+
+  <div class="order-btn">
+    <button (click)="continueServiceStep()" mat-raised-button matStepperNext class="add-btn"
+            [ngStyle]="{'background-color': dataShare.siteData.custom?.global?.color,'font-family' : dataShare.siteData.custom?.global?.font}"
+            [disabled]="(!(dataShare.addProduct.length > 0) || (placeOrder))"> Next
+    </button>
+  </div>
+
+</div>

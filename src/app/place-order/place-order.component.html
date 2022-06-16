@@ -1,0 +1,45 @@
+<div *ngIf="status === 'success' || status === 'success-stripe'">
+  <div class="thankYou-page">
+    <div class="success-row">
+      <mat-card>
+        <h1 [ngStyle]="{'font-family': dataShare.siteData.custom?.global?.font}">Thank You!</h1>
+        <h3 [ngStyle]="{'font-family': dataShare.siteData.custom?.global?.font}">Your order has been placed successfully
+          <div>Please check your email or Login to check status of your order.</div>
+        </h3>
+        <hr>
+        <p class="mt-3" [ngStyle]="{'font-family': dataShare.siteData.custom?.global?.font}">
+          Having trouble?<a href="">Contact us</a>
+        </p>
+        <div class="btn">
+          <button
+            [ngStyle]="{background: dataShare.siteData.custom.global?.color,'font-family' : dataShare.siteData.custom.global?.font}"
+            mat-raised-button class="add-btn" routerLink="/">Continue to homepage
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status === 'fail' || status === 'fail-stripe'">
+  <div class="thankYou-page">
+    <div class="success-row">
+      <mat-card>
+        <h1 [ngStyle]="{'font-family': dataShare.siteData.custom?.global?.font}">Sorry!</h1>
+        <h3 [ngStyle]="{'font-family': dataShare.siteData.custom?.global?.font}">Your order has been Failed!
+          <div>Please check your email or Login to check status of your order.</div>
+        </h3>
+        <hr>
+        <p class="mt-3" [ngStyle]="{'font-family': dataShare.siteData.custom?.global?.font}">
+          Having trouble?<a href="">Contact us</a>
+        </p>
+        <div class="btn">
+          <button
+            [ngStyle]="{background: dataShare.siteData.custom.global?.color,'font-family' : dataShare.siteData.custom.global?.font}"
+            mat-raised-button class="add-btn" routerLink="/">Continue to homepage
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

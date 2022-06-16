@@ -1,0 +1,102 @@
+<!--stack view-->
+
+<div *ngIf="subServiceType?.dynamicData?.sub_type === 'stack'">
+  <div class="pos-relative m-t-30">
+    <!--  [class]="data.selected ? 'border' : ''"-->
+    <div *ngIf="getProductData.length>0">
+      <div
+        [ngStyle]="{color: data.color, 'font-size': data ? data.font: '', 'font-weight':data.bold ? 'bold': '', 'font-style':data.italic ? 'italic':'','text-decoration':data.underline? 'underline':'', 'font-family': data.font_family }">
+        {{data.text}}</div>
+      <div class="fs-14" style="color: #767676">
+        Tap to select
+      </div>
+      <div *ngFor="let item of dataShare.allProductGet" class="m-t-20">
+
+        <div class="row">
+          <div class="col-lg-4 align-self-center text-center">
+            <img alt="" class="product-image" onerror="this.src='assets/img/whale-placeholder.png';" src="{{item.image}}">
+          </div>
+          <div class="col-lg-8">
+            <div style="display: flex; justify-content: space-between">
+              <div>
+             <span [ngStyle]="{color: data.color, 'font-size': '18px','font-family': dataShare.siteData.custom.global?.font}" class="name">
+          {{item.name}}
+             </span>
+              </div>
+              <div class="t-right">
+                <div class="t-right">
+                  <label class="checkmarkContainer" [ngStyle]="{color: data.color, 'font-size':data.font, 'font-family': data.font_family}">
+                    <input  type="checkbox" #checkbox  (change)="addProduct($event, item)" [checked]="item.checked">
+                    <span [style]="{'--checkbox-color' : checkBoxValue ? dataShare.siteData.custom.global?.color : '#666565'}"  class="checkmark"></span>
+                  </label>
+                </div>
+                <!--          <mat-checkbox  [checked]="item.checked" class="mt-3"></mat-checkbox>-->
+              </div>
+            </div>
+
+            <div>
+        <span [ngStyle]="{'font-size': '16px','font-family': dataShare.siteData.custom.global?.font, 'color': dataShare.siteData.custom.global?.color}" class="num">
+          {{dataShare.siteData.custom.global?.currency}}{{item.price}}</span>
+            </div>
+              <div [ngStyle]="{'font-size':  '14px','font-family': dataShare.siteData.custom.global?.font}">
+                {{item.desc}}
+            </div>
+
+            <!--          <div>-->
+            <!--            <button class="btn see" [ngStyle]="{ color: drag.color}"> see more</button>-->
+            <!--          </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  <div *ngIf="productData.length === 0" class="text-product">-->
+    <!--    <div> Add Product from settings first.</div>-->
+    <!--    <div>-->
+    <!--      <button (click)="product()" class="product-button" mat-raised-button>Settings</button>-->
+    <!--    </div>-->
+    <!--  </div>-->
+
+    <!--  <app-edit *ngIf="data.selected"></app-edit>-->
+
+  </div>
+</div>
+
+<!--grid view-->
+<div *ngIf="subServiceType?.dynamicData?.sub_type === 'grid'">
+<div  class="pos-relative m-t-30">
+<!--  [class] = "data.selected ? 'border': ''"-->
+  <div [ngStyle]="{ 'font-family': data.font_family, color: data.color, 'font-size':data ? data.font:'', 'font-weight':data.bold ? 'bold': '', 'font-style':data.italic ? 'italic':'','text-decoration':data.underline? 'underline':'' }">
+    {{data.text}}
+  </div>
+  <div style="color: #767676" [ngStyle]="{'font-style': data.font_family ? data.font_family:''}" class="fs-14">
+    Tap to select
+  </div>
+  <div class="grid" >
+    <div class="column m-b-20"  *ngFor="let item of dataShare.allProductGet" >
+      <div class="dis-flex" (click)="selectProduct(item)" [class]="selectProductClass(item)">
+        <div style="width: 50%;" >
+          <img class="m-b-10" onerror="src ='assets/img/whale-placeholder.png'" [src]="item.image"  alt="" style="height: 100px; width: 100px;">
+
+<!--          <div [ngStyle]="{'font-family': dataShare.siteData.custom.global.font}"><strong>Price: </strong> {{dataShare.siteData.custom.global.currency}}{{item.price}}</div>-->
+<!--        </div>-->
+<!--        <div class="img-name ">-->
+<!--          <div class="name" [ngStyle]="{ color: dataShare.siteData.custom.global.color,'font-family': dataShare.siteData.custom.global.font}">{{item.name}}</div>-->
+<!--          <div class="desc" [ngStyle]="{'font-family': dataShare.siteData.custom.global.font}">{{item.desc}}</div>-->
+
+          <div [ngStyle]="{'font-family': dataShare.globalData?.font}"><strong>Price: </strong> {{dataShare.globalData?.currency}}{{item.price}}</div>
+        </div>
+        <div class="img-name ">
+          <div class="name" [ngStyle]="{ color: dataShare.globalData?.color,'font-family': dataShare.globalData?.font}">{{item.name}}</div>
+          <div class="desc" [ngStyle]="{'font-family': dataShare.globalData?.font}">{{item.desc}}</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  <app-edit *ngIf="data.selected"></app-edit>-->
+</div>
+</div>
+
+
+

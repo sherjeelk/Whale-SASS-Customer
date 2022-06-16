@@ -1,0 +1,63 @@
+<div class="row">
+  <div *ngFor="let item of dataShare.siteData?.config?.step3" [class]="item.class">
+    <div *ngIf="item.type === 'text-box'">
+      <app-form-field-half [data]="item">
+      </app-form-field-half>
+    </div>
+    <div *ngIf="item.type === 'text-area'">
+      <app-text-box [data]="item"></app-text-box>
+    </div>
+    <div *ngIf="item.type === 'check-box'">
+      <app-checkbox [data]="item"></app-checkbox>
+    </div>
+    <div *ngIf="item.type === 'text-box-full'">
+      <app-form-field-half [data]="item">
+      </app-form-field-half>
+    </div>
+    <div *ngIf="item.type === 'radio_button'">
+      <app-radio-button [data]="item">
+      </app-radio-button>
+    </div>
+    <div *ngIf="item.type === 'heading-text'">
+      <app-edit-textbox [data]="item.uiData">
+      </app-edit-textbox>
+    </div>
+
+  </div>
+  <div style="display: none">
+    <form action="https://payment.paytrail.com/e2" ngNoForm method="post">
+      <input name="MERCHANT_ID" type="hidden" [value]="paymentData.MERCHANT_ID">
+      <input name="URL_SUCCESS" type="hidden" [value]="paymentData.URL_SUCCESS">
+      <input name="URL_CANCEL" type="hidden" [value]="paymentData.URL_CANCEL">
+      <input name="URL_NOTIFY" type="hidden" [value]="paymentData.URL_NOTIFY">
+      <input name="ORDER_NUMBER" type="hidden" [value]="paymentData.ORDER_NUMBER">
+      <input name="PARAMS_IN" type="hidden" [value]="paymentData.PARAMS_IN">
+      <input name="PARAMS_OUT" type="hidden" [value]="paymentData.PARAMS_OUT">
+      <input name="AMOUNT" type="hidden" [value]="paymentData.AMOUNT">
+      <input name="AUTHCODE" type="hidden" [value]="paymentData.AUTH_CODE">
+      <input  #pay type="submit" value="Pay Here" class="payment-button">
+    </form>
+  </div>
+
+  <div class="order-btn">
+    <button
+      [ngStyle]="{background: dataShare.siteData.custom?.global?.color,'font-family' : dataShare.siteData.custom?.global?.font}"
+      *ngIf="dataShare.siteData.apps.paytrailAuth"
+
+      mat-raised-button class="add-btn" (click)="saveOrder(1)" [disabled]="!(dataShare.selectService || dataShare.addProduct)">Pay with paytrail
+
+    </button>
+    <br>
+    <br>
+    <button
+      *ngIf="dataShare.siteData.apps.publish_key"
+
+      [ngStyle]="{background: dataShare.siteData.custom?.global?.color,'font-family' : dataShare.siteData.custom?.global?.font}"
+
+      mat-raised-button class="add-btn" (click)="saveOrder(2)" [disabled]="!(dataShare.selectService || dataShare.addProduct)">Pay with stripe
+
+    </button>
+
+  </div>
+</div>
+

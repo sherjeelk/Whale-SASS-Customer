@@ -1,0 +1,14 @@
+<div>
+  <!--      [ngStyle]="{'font-size': data.uiData ? data.uiData.font: '', 'font-weight':data.uiData.bold ? 'bold': '', 'font-style':data.uiData.italic ? 'italic':'','text-decoration':data.uiData.underline? 'underline':'', 'color':data.uiData.color ?'':'', 'font-family' : data.uiData.font_family }">-->
+
+  <!--  <mat-form-field appearance="outline" class="w-full">-->
+  <!--    <mat-label>Your Label</mat-label>-->
+  <!--    <input class="w-full" matInput placeholder="Your placeholder">-->
+  <!--  </mat-form-field>-->
+
+  <mat-form-field appearance="outline" class="w-full" [(ngModel)]="data.dynamicData.tittle" [ngStyle]="{'font-size': data.uiData ? data.uiData.font: '', 'font-weight':data.uiData.bold ? 'bold': '', 'font-style':data.uiData.italic ? 'italic':'','text-decoration': data.uiData.underline ? 'underline':'', 'color':data.uiData.color ?'':'', 'font-family' : data.uiData.font_family }">
+    <textarea class="w-full" matInput  rows="8" placeholder="{{data.uiData.text}}"></textarea>
+  </mat-form-field>
+<!--  <app-edit *ngIf="data.uiData.selected"></app-edit>-->
+</div>
+

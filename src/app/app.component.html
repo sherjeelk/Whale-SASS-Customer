@@ -1,0 +1,8 @@
+
+<div *ngIf="dataShare.prod ? dataShare.siteData : true">
+  <app-header></app-header>
+
+  <router-outlet (activate)="onActivate()"></router-outlet>
+  <app-footer></app-footer>
+
+</div>

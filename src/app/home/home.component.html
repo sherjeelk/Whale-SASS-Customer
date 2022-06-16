@@ -1,0 +1,68 @@
+
+<div class="container">
+  <div class="flex-container">
+    <div class="stepper-container">
+      <mat-card class="main-card mat-elevation-z5" #stepper>
+        <mat-horizontal-stepper linear (selectionChange)="changeStep($event)"   [linear]="isLinear"  [selectedIndex]="dataShare.index"  >
+          <mat-step label="Service" [completed]="dataShare.step.service">
+            <app-service></app-service>
+          </mat-step>
+          <mat-step  label="Date and Time" style="width: 50%" [completed]="dataShare.step.calendar">
+            <app-calendar></app-calendar>
+          </mat-step>
+          <mat-step  label="Order" style="width: 50%" [completed]="dataShare.step.order">
+            <app-order></app-order>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </mat-card>
+    </div>
+    <div class="info-container" id="1">
+      <mat-card class="info-card">
+        <div [ngStyle]="{background: dataShare.siteData.custom?.global?.color,'font-family':dataShare.siteData.custom?.global?.font}" class="info-head">{{dataShare.totalPrice}}{{dataShare.siteData.custom?.global?.currency}}</div>
+        <div class="info-content">
+          <div class="dis-flex justify-content-between mb-3" *ngIf="dataShare.selectService">
+            <span [ngStyle]="{'font-family': dataShare.siteData.custom?.global?.font}">Service</span>
+            <span [ngStyle]="{'font-family': dataShare.siteData.custom?.global?.font}">{{dataShare.selectService?.name}}</span>
+            <!--                <span>{{dataShare.selectService?.price}}</span>-->
+          </div>
+          <div class="d-flex justify-content-between mt-3 " *ngFor="let product of dataShare.addProduct ; let i = index">
+            <span class="flex-grow-1" [ngStyle]="{'font-family': dataShare.siteData.custom?.global?.font}">{{product?.name}}</span>
+            <span [ngStyle]="{'font-family' : dataShare.siteData.custom?.global?.font}" class="float-r">{{product?.price}}{{dataShare.siteData.custom?.global?.currency}}</span>
+
+            <div (click)="productDelete(i, product)" style="margin-left: 20px">
+                     <span><svg style="width:24px;height:24px; color:#ff380a" viewBox="0 0 24 24" >
+    <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+</svg></span>
+            </div>
+
+          </div>
+          <div *ngIf="dataShare.slotsSelected" >
+            <div class="d-flex mt-3" style="justify-content: space-between;">
+              <div class="flex-grow-1" [ngStyle]="{'font-family':dataShare.globalData?.font}" ><p class="L-M">Selected Slot</p></div>
+              <div class="float-r" [ngStyle]="{'font-family':dataShare.globalData?.font}" ><p class="L-M">Time</p></div>
+              <div [ngStyle]="{'font-family':dataShare.globalData?.font}"  style="margin-left: 20px"><p class="L-M" style="color: #e50000;">{{ dataShare.getTime(dataShare.slotsSelected.start)}}
+
+                - {{dataShare.getTime(dataShare.slotsSelected.end)}}</p></div>
+            </div>
+            <div class="d-flex" style="justify-content: space-between;">
+              <div class="flex-grow-1"><p class="L-M"></p></div>
+
+              <div class="float-r" [ngStyle]="{'font-family':dataShare.globalData?.font}" ><p class="L-M" style="margin-left: 74px;">Date</p></div>
+
+              <div style="margin-left: 20px" [ngStyle]="{'font-family':dataShare.globalData?.font}" ><p class="L-M" style="color: #e50000;">{{ dataShare.slotsSelected.date | date}} </p></div>
+
+            </div>
+          </div>
+
+          <div *ngIf="dataShare.contactForm.date" class="d-flex" style="justify-content: space-between;">
+            <div class="L-M" [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font}"><p>We will contact you at</p></div>
+            <div>
+              <div class="L-M" [ngStyle]="{'font-family':dataShare.siteData.custom?.global?.font}" >
+                <p>{{ utilService.getIndianDate(dataShare.contactForm.date)}} - {{dataShare.contactForm.time}}</p></div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+</div>
+</div>

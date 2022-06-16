@@ -1,0 +1,10 @@
+<div *ngIf="data.dynamicData"  class="pos-relative m-t-30">
+  <h1>{{data.dynamicData.tittle}}</h1>
+<!--  [class]="data.uiData.selected ? 'border' : ''"-->
+  <mat-form-field appearance="outline" class="w-full"
+                  [ngStyle]="{'font-size': data.uiData ? data.uiData.font: '', 'font-weight':data.uiData.bold ? 'bold': '', 'font-style':data.uiData.italic ? 'italic':'','text-decoration':data.uiData.underline? 'underline':'', 'color':data.uiData.color ?'':'', 'font-family' : data.uiData.font_family }">
+    <mat-label> {{data.uiData.text}} </mat-label>
+    <input [(ngModel)]="data.dynamicData.value" class="w-full" matInput >
+  </mat-form-field>
+</div>
+

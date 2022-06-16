@@ -1,0 +1,9 @@
+
+<div *ngIf="data.dynamicData">
+<section class="pos-relative m-t-30 section">
+  <label class="container-radio" *ngFor= "let item of data.dynamicData.radioBtn" [ngStyle]="{color: data.color, 'font-size':data.font, 'font-family': data.font_family}">{{item.text}}
+    <input  type="radio" (change)="changeRadioBtn($event, item)" [checked]="item.active">
+    <span [style]="{'--main-bg-color': dataShare.siteData.custom.global.color}" class="radiomark" > </span>
+  </label>
+</section>
+</div>

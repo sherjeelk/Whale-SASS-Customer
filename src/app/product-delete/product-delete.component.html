@@ -1,0 +1,8 @@
+<div>
+
+  <p [ngStyle]="{'font-family': dataShare.siteData.custom?.global?.font}">Are you sure that you want to delete this item?</p>
+  <div style="text-align: right">
+    <span class="m-r-20"><button mat-button (click)="close(1)" class="logout">Yes</button></span>
+    <span><button mat-button  (click)="close(2)" class="cancel">No</button></span>
+  </div>
+</div>

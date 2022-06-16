@@ -1,0 +1,388 @@
+//.info-card{
+//  padding: 0;
+//  border-radius: 0 0 18px 18px;
+//  background-color: white;
+//  margin-bottom: 30px;
+//}
+////
+////.home-card{
+////  display: flex;
+////  justify-content: space-between;
+////}
+//
+//.info-head{
+//  color: white;
+//  font-size: 28px;
+//  text-align: center;
+//  padding: 25px 5px;
+//}
+.info-content{
+  padding: 10px 20px;
+  color: white;
+  margin-top: 10px;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0 2px 1px -1px rgba(255, 56, 10, 0.1),
+  0 1px 1px 0  rgba(255, 56, 10, 0.19),
+  0 1px 3px 0  rgba(255, 56, 10, 0.19),
+}
+//
+////.home-container{
+////  width: 90%;
+////  margin: auto;
+////}
+//@media (max-width: 500px) {
+//  .container{
+//    padding: 0;
+//  }
+//
+//  .main-card{
+//    border-radius: 0;
+//  }
+//}
+//
+//.info-container{
+//  width: 30%;
+//  //margin-left: 50px;
+//  position: fixed;
+//  right: 10%;
+//  top: 100px;
+//  transition: ease all .5s;
+//  overflow-x: hidden;
+//  overflow-y: auto;
+//  max-height: 550px;
+//}
+//
+//
+//.stepper-container{
+//  width: 60%;
+//  transition: ease all .5s;
+//
+//}
+//.container{min-height: 100vh}
+//
+//@media (max-width: 1200px) {
+//  .info-container{
+//    position: static;
+//    order: 1;
+//    width: 100%;
+//    transition: ease all .5s;
+//    //margin-top: 50px;
+//    max-height: unset;
+//  }
+//
+//  .stepper-container{
+//    flex-grow: 1;
+//    order: 2;
+//    margin-top: 30px;
+//    transition: ease all .5s;
+//    width: 100%;
+//
+//  }
+//
+//}
+
+
+
+
+// start
+.info-card{
+  padding: 0!important;
+  border-radius: 0 0 18px 18px;
+  //background-color: white;
+  //margin-top: 40%;
+  box-shadow: 1px 5px 5px 5px #ffba0a;
+  background-color: black;
+  color: white;
+}
+
+.info-head{
+  color: white;
+  font-size: 28px;
+  text-align: center;
+  padding: 33px 5px;
+  border: 1px solid #ffa700;
+  border-radius: 10px;
+  background: black;
+}
+.text-center{
+  text-align: center;
+}
+
+
+.mat-form-field{
+  display: block;
+}
+
+.input{
+  margin: 20px;
+}
+
+.service-details{
+  padding: 10px;
+  margin: 10px;
+  //box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+  transition: .3s;
+}
+
+.service-details:hover {
+  cursor: pointer;
+  -moz-box-shadow: 0 5px 25px 0 rgba(182,182,212,1);
+  -webkit-box-shadow: 0 5px 25px 0 rgba(182,182,212,1);
+  box-shadow : 0 5px 25px 0 rgba(182,182,212,1);
+  -webkit-transition: all 300ms ease;
+}
+
+.flex-container{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  transition: ease all .5s;
+  //margin-top: 120px;
+  padding-bottom: 44px;
+
+}
+
+.stepper-container{
+  width: 60%;
+  transition: ease all .5s;
+  margin-top: 98px;
+
+}
+.info-container{
+  width: 30%;
+  //margin-left: 50px;
+  position: fixed;
+  right: 10%;
+  top: 100px;
+  transition: ease all .5s;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 550px;
+}
+
+.hint:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  color: #1d1d1d;
+}
+
+.hint{
+  color: #adadad;
+}
+
+.main-card{
+  border-radius: 15px;
+  //background-color: #1d1d1d;
+}
+
+.container{min-height: 100vh}
+
+@media (max-width: 1200px) {
+  .info-container{
+    position: static;
+    order: 1;
+    width: 100%;
+    transition: ease all .5s;
+    //margin-top: 50px;
+    max-height: unset;
+
+  }
+
+  .stepper-container{
+    flex-grow: 1;
+    order: 2;
+    margin-top: 30px;
+    transition: ease all .5s;
+
+  }
+}
+
+@media (max-width: 500px) {
+
+  .container{
+    padding: 0;
+  }
+
+  .main-card{
+    border-radius: 0;
+  }
+}
+
+
+.div-ov{
+  position: relative;
+  overflow: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #353b3b;
+}
+.info-container {
+  box-shadow: 1px 1px 19px 0px rgb(246 208 208 / 73%);
+  border-radius: 0 0 18px 18px;
+}
+
+.dark-theme{
+  background-color: #000000;
+}
+
+//.back{
+//  background-color: #1d1d1d;
+//  color: white;
+//}
+
+//.mat-form-field-appearance-outline .mat-form-field-outline {
+//  border: 1px solid white!important;
+//  border-radius: 5px!important;
+//
+//}
+//
+//.mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex {
+//  border: 1px solid white!important;
+//}
+
+
+
+
+//=================new css======================
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb {
+  width: 26px;
+  border-radius: 13px;
+  background-clip: padding-box;
+  border: 10px solid transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 0 10px rgba(255, 56, 10, 0.1);
+}
+.back{
+  background-color: #1d1d1d;
+  color: white;
+}
+
+.info-head{
+  background: black;
+  color: white;
+  font-size: 28px;
+  text-align: center;
+  padding: 25px 5px;
+  border: 1px solid #ffa700;
+  border-radius: 10px;
+}
+.info-card{
+  padding: 0;
+  border-radius: 0 0 18px 18px;
+  background-color: black;
+}
+
+.info-content{
+  padding: 10px 20px;
+  color: white;
+}
+
+//.mat-card:not([class*=mat-elevation-z]) {
+//  box-shadow: 0 2px 1px -1px rgba(255, 56, 10, 0.1),
+//  0 1px 1px 0  rgba(255, 56, 10, 0.19),
+//  0 1px 3px 0  rgba(255, 56, 10, 0.19),
+//}
+
+
+.title{
+  color: #ffa700;
+  margin-top: 15px;
+}
+.next-btn{
+  color: white;
+  padding: 0 50px;
+}
+.fname{
+  color: gray;
+}
+.lname{
+  color:white;
+}
+.outline{
+  text-decoration: none;
+  outline: none;
+}
+
+//.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+//  background-color: #ffa700;
+//  color: #fff;
+//}
+.mat-step-header .mat-step-label.mat-step-label-active {
+  color: white;
+}
+.mat-select-value{
+  color: white;
+}
+.mat-select-arrow{
+  color: white ;
+}
+.mat-form-field-label{
+  color: white;
+}
+.mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-fill.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label{
+  color: white;
+}
+.mat-form-field-appearance-outline .mat-form-field-outline{
+  color: white;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start{
+  color: white;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-gap{
+  color: white;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end{
+  color: white;
+}
+.mat-input-element{
+  caret-color: white ;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex{
+  border: 1px solid white !important;
+  border-radius: 5px!important;
+}
+
+.mat-form-field-underline{
+  width: 98%;
+  margin: auto 5px;
+}
+
+.mat-vertical-content-container {
+  margin-left: 0px;
+}
+
+.add-btn{
+  width: 20%;
+  color: white;
+}
+
+.order-btn{
+  margin-top: 30px;
+  text-align: center;
+}
